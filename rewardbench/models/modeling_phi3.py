@@ -45,7 +45,7 @@ from transformers.utils import (
     logging,
     replace_return_docstrings,
 )
-from configuration_phi3 import Phi3Config
+from .configuration_phi3 import Phi3Config
 
 
 logger = logging.get_logger(__name__)
