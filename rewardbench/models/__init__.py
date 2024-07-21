@@ -50,7 +50,7 @@ REWARD_MODEL_CONFIG = {
         # "model_builder": AutoModelForSequenceClassification.from_pretrained,
         "model_builder": Phi3ForSequenceClassification.from_pretrained,
         "pipeline_builder": RewardBenchPipeline,
-        "quantized": False,
+        "quantized": True,
         "custom_dialogue": False,
         "model_type": "Seq. Classifier",
     },

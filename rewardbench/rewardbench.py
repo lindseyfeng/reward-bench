@@ -261,7 +261,7 @@ def main():
         config = config_cls.from_pretrained("microsoft/Phi-3-mini-128k-instruct")
         config.num_labels = 1
 
-        model = model_builder(args.model, **model_kwargs, trust_remote_code=args.trust_remote_code, config=config, attn_implementation="flash_attention_2", torch_dtype=torch.bfloat16,)
+        model = model_builder(args.model, **model_kwargs, trust_remote_code=args.trust_remote_code, config=config, attn_implementation="flash_attention_2",)
         reward_pipe = pipeline_builder(
             "text-classification",  # often not used
             model=model,
@@ -314,8 +314,8 @@ def main():
             score_rejected_batch = [result["score"] for result in rewards_rejected]
         # for classes that directly output scores (custom code)
         else:
-            score_chosen_batch = rewards_chosen.numpy().tolist() #score_chosen_batch = rewards_chosen.cpu().numpy().tolist()
-            score_rejected_batch = rewards_rejected.numpy().tolist() # score_rejected_batch = rewards_rejected.cpu().numpy().tolist()
+            score_chosen_batch = rewards_chosen.cpu().numpy().tolist()
+            score_rejected_batch = rewards_rejected.cpu().numpy().tolist()
 
         # log results
         [
