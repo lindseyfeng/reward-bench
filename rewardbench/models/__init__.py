@@ -47,7 +47,7 @@ from .ziya import ZiyaPipeline
 REWARD_MODEL_CONFIG = {
     "default": {
         # "model_builder": AutoModelForSequenceClassification.from_pretrained,
-        "model_builder": Phi3ForSequenceClassification.from_pretrained,
+        "model_builder": PhiForSequenceClassification.from_pretrained,
         "pipeline_builder": RewardBenchPipeline,
         "quantized": True,
         "custom_dialogue": False,
