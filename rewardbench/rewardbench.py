@@ -258,7 +258,8 @@ def main():
             model_kwargs = {"device_map": "auto"}
         
         config_cls = Phi3Config
-        config = config_cls.from_pretrained(args.model)
+        config = config_cls.from_pretrained("microsoft/Phi-3-mini-128k-instruct")
+        config.num_labels = 1
 
         model = model_builder(args.model, **model_kwargs, trust_remote_code=args.trust_remote_code, config=config, attn_implementation="flash_attention_2", torch_dtype=torch.bfloat16,)
         reward_pipe = pipeline_builder(
