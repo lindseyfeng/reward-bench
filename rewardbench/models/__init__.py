@@ -41,7 +41,7 @@ from .starling import (
 )
 from .ziya import ZiyaPipeline
 
-from modeling_phi3 import Phi3ForSequenceClassification
+from .modeling_phi3 import Phi3ForSequenceClassification
 
 # Please open a PR if you need to add more custom modeling code / utilize existing code for you model
 REWARD_MODEL_CONFIG = {
