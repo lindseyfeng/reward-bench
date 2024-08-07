@@ -47,8 +47,8 @@ from .modeling_phi3 import Phi3ForSequenceClassification
 # Please open a PR if you need to add more custom modeling code / utilize existing code for you model
 REWARD_MODEL_CONFIG = {
     "default": {
-        # "model_builder": AutoModelForSequenceClassification.from_pretrained,
-        "model_builder": Phi3ForSequenceClassification.from_pretrained,
+        "model_builder": AutoModelForSequenceClassification.from_pretrained,
+        # "model_builder": Phi3ForSequenceClassification.from_pretrained,
         "pipeline_builder": RewardBenchPipeline,
         "quantized": True,
         "custom_dialogue": False,
