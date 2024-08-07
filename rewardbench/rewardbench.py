@@ -34,7 +34,6 @@ from rewardbench import (
     check_tokenizer_chat_template,
     load_preference_dataset,
 )
-from .configuration_phi3 import Phi3Config
 
 
 def main():
@@ -255,13 +254,9 @@ def main():
             }
         else:
             # note, device map auto does not work for quantized models
-            model_kwargs = {"device_map": "auto"}
-        
-        config_cls = Phi3Config
-        config = config_cls.from_pretrained("microsoft/Phi-3-mini-128k-instruct")
-        config.num_labels = 1
+            model_kwargs = {"device_map": "auto", ""}
 
-        model = model_builder(args.model, **model_kwargs, trust_remote_code=args.trust_remote_code, config=config, attn_implementation="flash_attention_2",)
+        model = model_builder(args.model, **model_kwargs, trust_remote_code=args.trust_remote_code, num_labels=1, )
         reward_pipe = pipeline_builder(
             "text-classification",  # often not used
             model=model,
