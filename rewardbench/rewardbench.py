@@ -254,7 +254,7 @@ def main():
             }
         else:
             # note, device map auto does not work for quantized models
-            model_kwargs = {"device_map": "auto", ""}
+            model_kwargs = {"device_map": "auto"}
 
         model = model_builder(args.model, **model_kwargs, trust_remote_code=args.trust_remote_code, num_labels=1, )
         reward_pipe = pipeline_builder(
