@@ -246,6 +246,7 @@ def main():
             "function_to_apply": "none",  # Compute raw logits
             "return_token_type_ids": False,
         }
+        print(quantized)
         if quantized:
             model_kwargs = {
                 "load_in_8bit": True,
